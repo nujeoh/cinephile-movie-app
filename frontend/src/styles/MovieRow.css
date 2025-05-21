@@ -1,0 +1,24 @@
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: #fff;
+  opacity: 0.9 !important;
+  padding: 5px 15px;
+  border-radius: 30px;
+  top: 40% !important;
+  margin: 0 5px 5px 0;
+  color: black !important;
+}
+
+.swiper-button-disabled {
+  opacity: 0 !important;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+}
+
+.card-text {
+  font-size: small;
+  color: #ffffffa6;
+}

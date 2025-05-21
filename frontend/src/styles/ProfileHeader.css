@@ -1,0 +1,18 @@
+.profile-card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.settings-btn {
+  color: #6c757d;
+}
+
+.profile-avatar {
+  object-fit: cover;
+}
+
+.stat-number {
+  font-size: 1.25rem;
+  font-weight: bold;
+}

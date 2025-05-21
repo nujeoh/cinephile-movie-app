@@ -1,0 +1,19 @@
+.card {
+  border: none;
+}
+
+.backdrop-img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+}
+
+.poster-img {
+  min-width: 300px;
+  object-fit: cover;
+}
+
+.card-img-overlay {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 0;
+}

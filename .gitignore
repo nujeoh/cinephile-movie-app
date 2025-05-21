@@ -1,0 +1,43 @@
+# Public
+.DS_Store
+*.log
+*.env
+.env.*
+
+# IDE / Editor
+.idea/
+.vscode/
+*.iml
+
+# Gradle & Spring Boot (backend)
+backend/.gradle/
+backend/build/
+backend/out/
+backend/deploy.zip
+backend/Procfile
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/src/main/resources/application-*.yml
+backend/.elasticbeanstalk/
+
+# Node / React (frontend)
+frontend/node_modules/
+frontend/.cache/
+frontend/build/
+frontend/.env
+frontend/.vite/
+frontend/.parcel-cache/
+frontend/.turbo/
+frontend/service-worker.js
+frontend/precache-manifest.*
+frontend/workbox-*.js
+
+# test / report
+frontend/coverage/
+backend/coverage/
+
+# OS / system
+Thumbs.db
+ehthumbs.db
+desktop.ini

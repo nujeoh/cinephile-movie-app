@@ -1,0 +1,15 @@
+.custom-modal {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.login-btn {
+  background-color: #ba0f16;
+}
+
+.custom-alert {
+  font-size: 14px;
+  padding: 10px;
+  width: 300px;
+  margin: 0 auto;
+}

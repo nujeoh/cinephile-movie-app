@@ -1,0 +1,35 @@
+body {
+  padding-top: 45px;
+}
+
+.Toastify__toast.my-toast {
+  width: 400px !important;
+  background: #212529 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.Toastify__toast--success .Toastify__toast-icon svg path {
+  fill: #ba0f16 !important;
+}
+
+.Toastify__toast--error .Toastify__toast-icon svg path {
+  fill: #ba0f16 !important;
+}
+
+.btn-outline-lightgray {
+  color: #adb5bd;
+  border-color: #adb5bd;
+}
+.btn-outline-lightgray:hover,
+.btn-outline-lightgray:focus {
+  background-color: rgba(173, 181, 189, 0.2);
+  color: #adb5bd;
+  border-color: #adb5bd;
+}
+
+.react-icon {
+  vertical-align: middle !important;
+  display: inline-block;
+}

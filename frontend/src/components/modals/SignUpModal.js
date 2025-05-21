@@ -1,0 +1,163 @@
+import React, { useState, useEffect } from 'react';
+import { Button, Modal, Form } from 'react-bootstrap';
+import { MODAL_TYPES, useModalContext } from 'context/ModalContext';
+import 'styles/Modals.css';
+import { api } from 'api/apiClient';
+import { toast } from 'react-toastify';
+
+// モーダルコンポーネント: SignInModal
+const SignInModal = () => {
+  const { closeModal, openModal } = useModalContext();
+
+  // フォーム入力データ
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const [errors, setErrors] = useState({}); // バリデーションエラー
+  const [submitted, setSubmitted] = useState(false); // 送信済フラグ
+  const [isLoading, setIsLoading] = useState(false); // ローディングフラグ
+
+  // 初期化：モーダル開閉でリセット
+  useEffect(() => {
+    setFormData({ name: '', email: '', password: '' });
+    setErrors({});
+    setSubmitted(false);
+    setIsLoading(false);
+  }, [closeModal]);
+
+  // 入力検証関数
+// 関数: validateForm
+  const validateForm = () => {
+    const newErrors = {};
+
+    // 名前の最小文字数検証
+    if (!formData.name || formData.name.length < 3) {
+      newErrors.name = 'お名前は3文字以上で入力してください。';
+    }
+
+    // メールアドレス形式チェック
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email || !emailRegex.test(formData.email)) {
+      newErrors.email = '有効なメールアドレスを入力してください。';
+    }
+
+    // パスワード強度チェック (英字＋数字10文字以上)
+    const pwRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$/;
+    if (!formData.password || !pwRegex.test(formData.password)) {
+      newErrors.password = '10文字以上で、英字と数字を含めてください。';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // 入力変更ハンドラー
+// イベント処理関数: handleChange
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // フォーム送信ハンドラー
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+
+    if (!validateForm()) return; // バリデーションNGなら送信中止
+
+    setIsLoading(true);
+    try {
+      await api.post('/api/user/signup', formData);
+
+      toast.success('会員登録が完了しました！ログインしてください。');
+      openModal(MODAL_TYPES.LOGIN);
+    } catch (fieldErrors) {
+      setErrors(fieldErrors);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <Modal show={true} onHide={closeModal} centered animation={false} dialogClassName="custom-modal">
+      <Modal.Header className="border-0 d-flex flex-column align-items-center w-100">
+        <img src="/logo.png" width="200" height="60" alt="logo" className="mb-2" />
+        <Modal.Title className="text-center w-100 pt-3">新規登録</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form noValidate onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Control
+              type="text"
+              name="name"
+              autoComplete="name"
+              placeholder="お名前"
+              className="mb-2"
+              autoFocus
+              value={formData.name}
+              onChange={handleChange}
+              isInvalid={submitted && !!errors.name}
+              isValid={submitted && formData.name && !errors.name}
+            />
+            <Form.Control.Feedback type="invalid" className="mb-2">
+              {errors.name}
+            </Form.Control.Feedback>
+
+            <Form.Control
+              type="email"
+              name="email"
+              autoComplete="email"
+              placeholder="メール"
+              className="mb-2"
+              value={formData.email}
+              onChange={handleChange}
+              isInvalid={submitted && !!errors.email}
+              isValid={submitted && formData.email && !errors.email}
+            />
+            <Form.Control.Feedback type="invalid" className="mb-2">
+              {errors.email}
+            </Form.Control.Feedback>
+
+            <Form.Control
+              type="password"
+              name="password"
+              autoComplete="new-password"
+              placeholder="パスワード"
+              className="mb-2"
+              value={formData.password}
+              onChange={handleChange}
+              isInvalid={submitted && !!errors.password}
+              isValid={submitted && formData.password && !errors.password}
+            />
+            <Form.Control.Feedback type="invalid" className="mb-2">
+              {errors.password}
+            </Form.Control.Feedback>
+
+            <Button type="submit" variant="secondary" className="login-btn w-100 border-0 mt-2" disabled={isLoading}>
+              {isLoading ? '登録中...' : '登録する'}
+            </Button>
+          </Form.Group>
+        </Form>
+      </Modal.Body>
+      <div className="text-center pb-3">
+        すでに登録していますか？&nbsp;
+        <span
+          className="text-primary"
+          style={{ cursor: 'pointer' }}
+          onClick={() => {
+            openModal(MODAL_TYPES.LOGIN);
+          }}
+        >
+          ログイン
+        </span>
+      </div>
+    </Modal>
+  );
+};
+
+export default SignInModal;
