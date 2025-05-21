@@ -113,13 +113,13 @@
 
 | **トップページ**  |  **映画検索結果ページ**      |
 | :-----------------: | :----------------: |
-| <img width="450" src="https://github.com/user-attachments/assets/507420b2-d385-4baf-8d2f-689df0a3cf42"/> | <img width="450" src="https://github.com/user-attachments/assets/6e9ffed3-6beb-479f-a2ec-65b42d9ca8ff"/>|
+| <img width="430" src="https://github.com/user-attachments/assets/507420b2-d385-4baf-8d2f-689df0a3cf42"/> | <img width="430" src="https://github.com/user-attachments/assets/6e9ffed3-6beb-479f-a2ec-65b42d9ca8ff"/>|
 | **映画詳細ページ**      |  **レビュー詳細ページ**      |
-| <img width="450" src="https://github.com/user-attachments/assets/12361dfd-c06c-48c5-a986-a6e1104b20f3"/> | <img width="450" src="https://github.com/user-attachments/assets/35d9f83b-45e5-4886-8787-e21e234188c1"/>|
+| <img width="430" src="https://github.com/user-attachments/assets/12361dfd-c06c-48c5-a986-a6e1104b20f3"/> | <img width="430" src="https://github.com/user-attachments/assets/35d9f83b-45e5-4886-8787-e21e234188c1"/>|
 | **レビュー作成モダール**      |  **レビュー一覧ページ**   |
-| <img width="450" src="https://github.com/user-attachments/assets/7d62ed65-1f49-4eab-9c5c-f464e3f8e747"/> | <img width="450" src="https://github.com/user-attachments/assets/b6705d39-8e67-4ab1-8ffb-4197d072db63"/>|
+| <img width="430" src="https://github.com/user-attachments/assets/7d62ed65-1f49-4eab-9c5c-f464e3f8e747"/> | <img width="430" src="https://github.com/user-attachments/assets/b6705d39-8e67-4ab1-8ffb-4197d072db63"/>|
 | **会員登録 / ログイン**      |  **マイページ**   |
-| <img width="450" src="https://github.com/user-attachments/assets/7df5b039-b516-4c8e-ae79-c18c583570b2"/> | <img width="450" src="https://github.com/user-attachments/assets/325c33d5-f295-41fc-b602-4ade9521a5fa"/>|
+| <img width="430" src="https://github.com/user-attachments/assets/7df5b039-b516-4c8e-ae79-c18c583570b2"/> | <img width="430" src="https://github.com/user-attachments/assets/325c33d5-f295-41fc-b602-4ade9521a5fa"/>|
 
 
 <br><br>
